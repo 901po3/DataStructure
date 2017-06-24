@@ -12,6 +12,7 @@ DLink::DLink()
 	pTail->pPrev = pHead;
 }
 
+// ÀÛ¾÷2
 DLink::~DLink()
 {
 	DeleteAllNode();
