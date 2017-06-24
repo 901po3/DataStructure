@@ -1,7 +1,7 @@
 #include"DLink.h"
 #include<iostream>
 using namespace std;
-
+//
 DLink::DLink()
 {
 	pHead = new Node;
