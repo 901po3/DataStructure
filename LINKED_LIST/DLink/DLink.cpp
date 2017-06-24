@@ -1,7 +1,7 @@
 #include"DLink.h"
 #include<iostream>
 using namespace std;
-//
+
 DLink::DLink()
 {
 	pHead = new Node;
@@ -12,7 +12,6 @@ DLink::DLink()
 	pTail->pPrev = pHead;
 }
 
-// ÀÛ¾÷2
 DLink::~DLink()
 {
 	DeleteAllNode();
