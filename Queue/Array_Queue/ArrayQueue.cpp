@@ -27,7 +27,7 @@ myType ArrayQueue::DeQueue()
 	if(Rear == Front)
 		return 0;
 
-	Front -= 1;
-	return Queue[Front + 1];
+	Front ++;
+	return Queue[Front - 1];
 	
 }
