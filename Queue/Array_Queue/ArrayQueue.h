@@ -7,8 +7,8 @@ class ArrayQueue
 {
 private:
 	myType Queue[MAX];
-	myType Front;
-	myType Rear;
+	int Front;
+	int Rear;
 public:
 	ArrayQueue();
 	~ArrayQueue();
