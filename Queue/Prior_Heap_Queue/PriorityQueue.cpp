@@ -35,8 +35,8 @@ void PriorityQueue::EnQueue(myType data)
 		}
 	}
 
-	//¹è¿­ »çÀÌÁî °ü¸® 15ÀÇ¹è¼ö¹ø Ãß°¡ µÉ¶§¸¶´Ù »çÀÌÁî ´Ã¸²;
-	//STLÀÇ VECTOR¿¡¼­ ¾ÆÀÌµð¾î ¾òÀ½
+	//ë°°ì—´ ì‚¬ì´ì¦ˆ ê´€ë¦¬ 15ì˜ë°°ìˆ˜ë²ˆ ì¶”ê°€ ë ë•Œë§ˆë‹¤ ì‚¬ì´ì¦ˆ ëŠ˜ë¦¼;
+	//STLì˜ VECTORì—ì„œ ì•„ì´ë””ì–´ ì–»ìŒ
 	if (curSize >= (increTime * INCREASE_SIZE) - 1)
 	{
 		myType *pNewArray = new myType[++increTime * INCREASE_SIZE];
@@ -60,13 +60,14 @@ myType PriorityQueue::DeQueue()
 	int leftC, rightC, smallerC;
 
 	HeapArray[k] = HeapArray[--curSize];
+	HeapArray[curSize + 1] = NOT_USED;
 
 	while (true)
 	{
 		leftC = k * 2 + 1;
 		rightC = k * 2 + 2;
 
-		if (HeapArray[leftC] == -1 || HeapArray[rightC] == -1) break;
+		if (HeapArray[leftC] == NOT_USED || HeapArray[rightC] == NOT_USED) break;
 
 		smallerC = HeapArray[leftC] <= HeapArray[rightC] ? leftC : rightC;
 
