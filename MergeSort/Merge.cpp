@@ -69,7 +69,7 @@ void MergeSort(int data[], int left, int right)
 		MergeSort(data, left, middle);
 		MergeSort(data, middle + 1, right);
 
-		for(i = middle + 1; i > left; i--)
+		for(i = middle + 1; i > left; i--) // 1
 			temp[i - 1] = data[i - 1];
 
 		for(j = middle; j < right; j++)
@@ -82,12 +82,12 @@ void MergeSort(int data[], int left, int right)
 
 void main()
 {
-	cout<<"Á¤·ÄÇÒ µ¥ÀÌÅÍ ÃÊ±âÈ­\n";
+	cout<<"ì •ë ¬í•  ë°ì´í„° ì´ˆê¸°í™”\n";
 
 	MakeRandomNumber();
 	DisplayBuffer();
 
-	cout<<"Á¤·Ä ÈÄ µ¥ÀÌÅÍ\n";
+	cout<<"ì •ë ¬ í›„ ë°ì´í„°\n";
 
 	MergeSort(buf, 0, MAX-1);
 	DisplayBuffer();
