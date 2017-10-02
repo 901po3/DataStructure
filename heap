@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+
+#define MAX_VERTEX		50
+#define MAX_EDGE		100
+
+#define ONLY_FIND		0
+#define UNION			1
+
+#define name2int(c)		(c - 'A')
+#define int2name(i)		(i + 'A')
+
+int parent[MAX_VERTEX];		//집합을 나타내는 나무의 구조 유지
+int height[MAX_VERTEX];		//집합을 나타내는 나무의 높이를 저장
+int cost = 0;				//최소비용을 저장
+
+FILE *fp;
+
+struct  Edge
+{
+	int v1, v2;
+	int weight;
+};
+
+Edge edge[MAX_EDGE];
+
+int nheap = 0; //힙의 원소 개수를 저장
+int heap[MAX_VERTEX];
+
+void UpHeap(int h[], int k) //k == index 즉 ++nheap을 넣을것	//작은 값의 자식을 위로(부모)로 올리는 함수
+{
+	int v;
+	v = h[k];
+	while (edge[h[k / 2]].weight >= edge[h[k]].weight && k / 2 > 0) 
+	{	//부모가 자식보다 크거나 같을때 들어가서 교환 즉-> 부모를 작게 -> min heap
+		h[k] = h[k / 2];
+		k /= 2;
+	}
+	h[k] = v;
+}
+
+
+//완전 이진트리일때 정점의 개수는 간선의 개수의 절반이다!!!
+//허나 여기서 nheap을 /2 로 나눈 while문을 사용한것 이진트리 두개의 자식중 하나의 자식으로만 이동할것이라;
+void DownHeap(int h[], int k) //큰 값의 부모를 자식으로 내리는 함수
+{
+	int i, v;
+	v = h[k];
+	while (k <= nheap / 2)
+	{
+		i = k << 1;
+		if (i < nheap && edge[h[i]].weight > edge[h[i + 1]].weight) i++;
+		if (edge[v].weight <= edge[h[i]].weight) break;
+		h[k] = h[i];
+		k = i;
+	}
+	h[k] = v;
+}
