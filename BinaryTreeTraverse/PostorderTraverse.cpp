@@ -35,7 +35,7 @@ void InitStack();
 bool IsStackEmpty();
 
 
-void StackPostorderTraverse(Node *pTemp)//
+void StackPostorderTraverse(Node *pTemp)
 {
 	bool finished = false;
 	Node *pSave;
