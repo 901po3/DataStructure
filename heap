@@ -27,7 +27,7 @@ Edge edge[MAX_EDGE];
 int nheap = 0; //힙의 원소 개수를 저장
 int heap[MAX_VERTEX];
 
-void UpHeap(int h[], int k) //k == index 즉 ++nheap을 넣을것	//작은 값의 자식을 위로(부모)로 올리는 함수
+void UpHeap(int h[], int k) //k == index 즉 ++nheap을 넣을것	,작은 값의 자식을 위로(부모)로 올리는 함수
 {
 	int v;
 	v = h[k];
