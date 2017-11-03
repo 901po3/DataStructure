@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-#define MAX_VERTEX	100
+#define MAX_VERTEX	256
 
 struct Node
 {
